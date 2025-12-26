@@ -7,6 +7,7 @@ exclusiveMinimum-error = Expected a number greater than {$exclusiveMinimum}
 maximum-error = Expected a number less than {$maximum}
 minimum-error = Expected a number greater than {$minimum}
 maxLength-error = Expected a string with at most {$maxLength} characters
+minLength-error = Expected a string with at least {$minLength} characters
 format-error = Expected a value matching the '{$format}' format
 required-error = Required {$count ->
   [one] property {$required} is
