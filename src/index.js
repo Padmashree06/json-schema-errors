@@ -9,6 +9,7 @@ import exclusiveMaximumNormalizationHandler from "./normalization-handlers/exclu
 import exclusiveMinimumNormalizationHandler from "./normalization-handlers/exclusiveMinimum.js";
 import formatNormalizationHandler from "./normalization-handlers/format.js";
 import maximumNormalizationHandler from "./normalization-handlers/maximum.js";
+import maxLengthNormalizationHandler from "./normalization-handlers/maxLength.js";
 import minimumNormalizationHandler from "./normalization-handlers/minimum.js";
 import propertiesNormalizationHandler from "./normalization-handlers/properties.js";
 import refNormalizationHandler from "./normalization-handlers/ref.js";
@@ -24,6 +25,7 @@ import dependentRequiredErrorHandler from "./error-handlers/dependentRequired.js
 import exclusiveMaximumErrorHandler from "./error-handlers/exclusiveMaximum.js";
 import exclusiveMinimumErrorHandler from "./error-handlers/exclusiveMinimum.js";
 import maximumErrorHandler from "./error-handlers/maximum.js";
+import maxLengthErrorHandler from "./error-handlers/maxLength.js";
 import minimumErrorHandler from "./error-handlers/minimum.js";
 import formatErrorHandler from "./error-handlers/format.js";
 import requiredErrorHandler from "./error-handlers/required.js";
@@ -42,6 +44,7 @@ setNormalizationHandler("https://json-schema.org/keyword/draft-04/format", forma
 setNormalizationHandler("https://json-schema.org/keyword/exclusiveMaximum", exclusiveMaximumNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/exclusiveMinimum", exclusiveMinimumNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/maximum", maximumNormalizationHandler);
+setNormalizationHandler("https://json-schema.org/keyword/maxLength", maxLengthNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/minimum", minimumNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/properties", propertiesNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/ref", refNormalizationHandler);
@@ -57,6 +60,7 @@ addErrorHandler(exclusiveMaximumErrorHandler);
 addErrorHandler(exclusiveMinimumErrorHandler);
 addErrorHandler(minimumErrorHandler);
 addErrorHandler(maximumErrorHandler);
+addErrorHandler(maxLengthErrorHandler);
 addErrorHandler(formatErrorHandler);
 addErrorHandler(requiredErrorHandler);
 

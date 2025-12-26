@@ -77,6 +77,11 @@ export class Localization {
     return this.#formatMessage("maximum-error", { maximum });
   }
 
+  /** @type (maxLength: number) => string */
+  getMaxLengthErrorMessage(maxLength) {
+    return this.#formatMessage("maxLength-error", { maxLength });
+  }
+
   /** @type (exclusiveMinimum: number) => string */
   getExclusiveMinimumErrorMessage(exclusiveMinimum) {
     return this.#formatMessage("exclusiveMinimum-error", { exclusiveMinimum });
