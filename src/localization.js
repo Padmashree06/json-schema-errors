@@ -67,6 +67,11 @@ export class Localization {
     });
   }
 
+  /** @type (format: string) => string */
+  getFormatErrorMessage(format) {
+    return this.#formatMessage("format-error", { format });
+  }
+
   /** @type (exclusiveMaximum: number) => string */
   getExclusiveMaximumErrorMessage(exclusiveMaximum) {
     return this.#formatMessage("exclusiveMaximum-error", { exclusiveMaximum });
@@ -122,9 +127,9 @@ export class Localization {
     return this.#formatMessage("uniqueItems-error", {});
   }
 
-  /** @type (format: string) => string */
-  getFormatErrorMessage(format) {
-    return this.#formatMessage("format-error", { format });
+  /** @type (maxProperties: number) => string */
+  getMaxPropertiesErrorMessage(maxProperties) {
+    return this.#formatMessage("maxProperties-error", { maxProperties });
   }
 
   /** @type (required: string[]) => string */
