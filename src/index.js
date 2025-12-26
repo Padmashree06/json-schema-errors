@@ -15,6 +15,7 @@ import minimumNormalizationHandler from "./normalization-handlers/minimum.js";
 import minItemsNormalizationHandler from "./normalization-handlers/minItems.js";
 import minLengthNormalizationHandler from "./normalization-handlers/minLength.js";
 import multipleOfNormalizationHandler from "./normalization-handlers/multipleOf.js";
+import patternNormalizationHandler from "./normalization-handlers/pattern.js";
 import propertiesNormalizationHandler from "./normalization-handlers/properties.js";
 import refNormalizationHandler from "./normalization-handlers/ref.js";
 import requiredNormalizationHandler from "./normalization-handlers/required.js";
@@ -35,6 +36,7 @@ import minimumErrorHandler from "./error-handlers/minimum.js";
 import minItemsErrorHandler from "./error-handlers/minItems.js";
 import minLengthErrorHandler from "./error-handlers/minLength.js";
 import multipleOfErrorHandler from "./error-handlers/multipleOf.js";
+import patternErrorHandler from "./error-handlers/pattern.js";
 import requiredErrorHandler from "./error-handlers/required.js";
 import typeErrorHandler from "./error-handlers/type.js";
 
@@ -58,6 +60,7 @@ setNormalizationHandler("https://json-schema.org/keyword/minimum", minimumNormal
 setNormalizationHandler("https://json-schema.org/keyword/minItems", minItemsNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/minLength", minLengthNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/multipleOf", multipleOfNormalizationHandler);
+setNormalizationHandler("https://json-schema.org/keyword/pattern", patternNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/properties", propertiesNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/ref", refNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/required", requiredNormalizationHandler);
@@ -77,6 +80,7 @@ addErrorHandler(minimumErrorHandler);
 addErrorHandler(minItemsErrorHandler);
 addErrorHandler(minLengthErrorHandler);
 addErrorHandler(multipleOfErrorHandler);
+addErrorHandler(patternErrorHandler);
 addErrorHandler(requiredErrorHandler);
 addErrorHandler(typeErrorHandler);
 

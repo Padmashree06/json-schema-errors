@@ -102,6 +102,11 @@ export class Localization {
     return this.#formatMessage("minLength-error", { minLength });
   }
 
+  /** @type (pattern: string) => string */
+  getPatternErrorMessage(pattern) {
+    return this.#formatMessage("pattern-error", { pattern });
+  }
+
   /** @type (maxItems: number) => string */
   getMaxItemsErrorMessage(maxItems) {
     return this.#formatMessage("maxItems-error", { maxItems });
