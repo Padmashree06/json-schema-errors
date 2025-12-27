@@ -31,8 +31,9 @@ required-error = Required {$count ->
 } missing
 
 // Applicators
-anyOf-error = None of the alternatives match
+anyOf-error = Expected none of the alternatives match
 oneOf-error = {$matchCount ->
   [0] None
   *[other] More than one
 } of the alternatives match
+not-error = Expected a value that doesn't match the 'not' schema

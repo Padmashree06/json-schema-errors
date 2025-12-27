@@ -154,4 +154,9 @@ export class Localization {
   getOneOfErrorMessage(matchCount) {
     return this.#formatMessage("oneOf-error", { matchCount });
   }
+
+  /** @type () => string */
+  getNotErrorMessage() {
+    return this.#formatMessage("not-error", {});
+  }
 }

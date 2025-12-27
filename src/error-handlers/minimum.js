@@ -15,6 +15,7 @@ const minimumErrorHandler = async (normalizedErrors, instance, localization) => 
     if (!normalizedErrors["https://json-schema.org/keyword/minimum"][schemaLocation]) {
       const keyword = await getSchema(schemaLocation);
       const minimum = /** @type number */ (Schema.value(keyword));
+
       errors.push({
         message: localization.getMinimumErrorMessage(minimum),
         instanceLocation: Instance.uri(instance),
