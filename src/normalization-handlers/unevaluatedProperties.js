@@ -7,7 +7,6 @@ import * as Instance from "@hyperjump/json-schema/instance/experimental";
 
 /**
  * @typedef {{
- *   rootSchema: string;
  *   evaluatedProperties: Set<string>;
  *   schemaEvaluatedProperties: Set<string>;
  * } & EvaluationContext} EvaluatedPropertiesContext
