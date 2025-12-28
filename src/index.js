@@ -28,12 +28,14 @@ import notNormalizationHandler from "./normalization-handlers/not.js";
 import oneOfNormalizationHandler from "./normalization-handlers/oneOf.js";
 import patternNormalizationHandler from "./normalization-handlers/pattern.js";
 import patternPropertiesNormalizationHandler from "./normalization-handlers/patternProperties.js";
+import prefixItemsNormalizationHandler from "./normalization-handlers/prefixItems.js";
 import propertiesNormalizationHandler from "./normalization-handlers/properties.js";
 import propertyNamesNormalizationHandler from "./normalization-handlers/propertyNames.js";
 import refNormalizationHandler from "./normalization-handlers/ref.js";
 import requiredNormalizationHandler from "./normalization-handlers/required.js";
 import thenNormalizationHandler from "./normalization-handlers/then.js";
 import typeNormalizationHandler from "./normalization-handlers/type.js";
+import unevaluatedItemsNormalizationHandler from "./normalization-handlers/unevaluatedItems.js";
 import unevaluatedPropertiesNormalizationHandler from "./normalization-handlers/unevaluatedProperties.js";
 import uniqueItemsNormalizationHandler from "./normalization-handlers/uniqueItems.js";
 
@@ -95,12 +97,14 @@ setNormalizationHandler("https://json-schema.org/keyword/not", notNormalizationH
 setNormalizationHandler("https://json-schema.org/keyword/oneOf", oneOfNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/pattern", patternNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/patternProperties", patternPropertiesNormalizationHandler);
+setNormalizationHandler("https://json-schema.org/keyword/prefixItems", prefixItemsNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/properties", propertiesNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/propertyNames", propertyNamesNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/ref", refNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/required", requiredNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/then", thenNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/type", typeNormalizationHandler);
+setNormalizationHandler("https://json-schema.org/keyword/unevaluatedItems", unevaluatedItemsNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/unevaluatedProperties", unevaluatedPropertiesNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/uniqueItems", uniqueItemsNormalizationHandler);
 
