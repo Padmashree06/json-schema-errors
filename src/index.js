@@ -29,6 +29,7 @@ import oneOfNormalizationHandler from "./normalization-handlers/oneOf.js";
 import patternNormalizationHandler from "./normalization-handlers/pattern.js";
 import patternPropertiesNormalizationHandler from "./normalization-handlers/patternProperties.js";
 import propertiesNormalizationHandler from "./normalization-handlers/properties.js";
+import propertyNamesNormalizationHandler from "./normalization-handlers/propertyNames.js";
 import refNormalizationHandler from "./normalization-handlers/ref.js";
 import requiredNormalizationHandler from "./normalization-handlers/required.js";
 import thenNormalizationHandler from "./normalization-handlers/then.js";
@@ -95,6 +96,7 @@ setNormalizationHandler("https://json-schema.org/keyword/oneOf", oneOfNormalizat
 setNormalizationHandler("https://json-schema.org/keyword/pattern", patternNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/patternProperties", patternPropertiesNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/properties", propertiesNormalizationHandler);
+setNormalizationHandler("https://json-schema.org/keyword/propertyNames", propertyNamesNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/ref", refNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/required", requiredNormalizationHandler);
 setNormalizationHandler("https://json-schema.org/keyword/then", thenNormalizationHandler);
