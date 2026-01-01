@@ -1,0 +1,32 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The maximum keyword",
+  "tests": [
+    {
+      "description": "maximum",
+      "schema": {
+        "maximum": 3
+      },
+      "instance": 4,
+      "errors": [
+        {
+          "messageId": "maximum-message",
+          "messageParams": {
+            "maximum": 3
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/maximum"]
+        }
+      ]
+    },
+    {
+      "description": "maximum pass",
+      "schema": {
+        "maximum": 3
+      },
+      "instance": 3,
+      "errors": []
+    }
+  ]
+}

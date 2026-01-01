@@ -1,0 +1,29 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The not keyword",
+  "tests": [
+    {
+      "description": "not",
+      "schema": {
+        "not": { "type": "number" }
+      },
+      "instance": 42,
+      "errors": [
+        {
+          "messageId": "not-message",
+          "instanceLocation": "#",
+          "schemaLocations": ["#/not"]
+        }
+      ]
+    },
+    {
+      "description": "not pass",
+      "schema": {
+        "not": { "type": "number" }
+      },
+      "instance": "foo",
+      "errors": []
+    }
+  ]
+}

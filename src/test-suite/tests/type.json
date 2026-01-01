@@ -1,0 +1,41 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The type keyword",
+  "tests": [
+    {
+      "description": "single type",
+      "schema": {
+        "type": "number"
+      },
+      "instance": "foo",
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": "number"
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/type"]
+        }
+      ]
+    },
+    {
+      "description": "multiple types",
+      "schema": {
+        "type": ["number", "null"]
+      },
+      "instance": "foo",
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["number", "null"] }
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/type"]
+        }
+      ]
+    }
+  ]
+}

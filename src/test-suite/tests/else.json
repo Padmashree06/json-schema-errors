@@ -1,0 +1,36 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The else keyword",
+  "tests": [
+    {
+      "description": "if/else",
+      "compatibility": "7",
+      "schema": {
+        "if": { "minimum": 10 },
+        "else": { "multipleOf": 5 }
+      },
+      "instance": 3,
+      "errors": [
+        {
+          "messageId": "multipleOf-message",
+          "messageParams": {
+            "multipleOf": 5
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/else/multipleOf"]
+        }
+      ]
+    },
+    {
+      "description": "if/else pass",
+      "compatibility": "7",
+      "schema": {
+        "if": { "minimum": 10 },
+        "else": { "multipleOf": 5 }
+      },
+      "instance": 5,
+      "errors": []
+    }
+  ]
+}

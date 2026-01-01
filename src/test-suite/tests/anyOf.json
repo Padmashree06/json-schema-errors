@@ -1,0 +1,57 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The anyOf keyword",
+  "tests": [
+    {
+      "description": "anyOf",
+      "schema": {
+        "anyOf": [
+          { "type": "string" },
+          { "type": "number" }
+        ]
+      },
+      "instance": null,
+      "errors": [
+        {
+          "messageId": "anyOf-message",
+          "alternatives": [
+            [
+              {
+                "messageId": "type-message",
+                "messageParams": {
+                  "expectedTypes": "string"
+                },
+                "instanceLocation": "#",
+                "schemaLocations": ["#/anyOf/0/type"]
+              }
+            ],
+            [
+              {
+                "messageId": "type-message",
+                "messageParams": {
+                  "expectedTypes": "number"
+                },
+                "instanceLocation": "#",
+                "schemaLocations": ["#/anyOf/1/type"]
+              }
+            ]
+          ],
+          "instanceLocation": "#",
+          "schemaLocations": ["#/anyOf"]
+        }
+      ]
+    },
+    {
+      "description": "anyOf pass",
+      "schema": {
+        "anyOf": [
+          { "type": "string" },
+          { "type": "number" }
+        ]
+      },
+      "instance": 42,
+      "errors": []
+    }
+  ]
+}

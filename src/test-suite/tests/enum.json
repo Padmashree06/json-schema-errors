@@ -1,0 +1,33 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The enum keyword",
+  "tests": [
+    {
+      "description": "enum",
+      "schema": {
+        "enum": ["foo", "bar"]
+      },
+      "instance": 42,
+      "errors": [
+        {
+          "messageId": "enum-message",
+          "messageParams": {
+            "expected": { "or": ["\"foo\"", "\"bar\""] },
+            "count": 2
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/enum"]
+        }
+      ]
+    },
+    {
+      "description": "enum pass",
+      "schema": {
+        "enum": ["foo", "bar"]
+      },
+      "instance": "foo",
+      "errors": []
+    }
+  ]
+}

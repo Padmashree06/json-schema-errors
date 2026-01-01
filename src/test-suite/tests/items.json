@@ -1,0 +1,63 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The items keyword",
+  "tests": [
+    {
+      "description": "items with false schema",
+      "compatibility": "2020",
+      "schema": {
+        "prefixItems": [{ "type": "number" }],
+        "items": false
+      },
+      "instance": [42, "foo"],
+      "errors": [
+        {
+          "messageId": "boolean-schema-message",
+          "messageParams": {},
+          "instanceLocation": "#/1",
+          "schemaLocations": ["#/items"]
+        }
+      ]
+    },
+    {
+      "description": "items with object schema",
+      "compatibility": "2020",
+      "schema": {
+        "prefixItems": [{ "type": "number" }],
+        "items": { "type": "string" }
+      },
+      "instance": [42, null],
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["string"] }
+          },
+          "instanceLocation": "#/1",
+          "schemaLocations": ["#/items/type"]
+        }
+      ]
+    },
+    {
+      "description": "items on a non-object",
+      "compatibility": "2020",
+      "schema": {
+        "prefixItems": [{ "type": "number" }],
+        "items": { "type": "string" }
+      },
+      "instance": 42,
+      "errors": []
+    },
+    {
+      "description": "items pass",
+      "compatibility": "2020",
+      "schema": {
+        "prefixItems": [{ "type": "number" }],
+        "items": { "type": "string" }
+      },
+      "instance": [42, "foo"],
+      "errors": []
+    }
+  ]
+}

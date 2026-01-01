@@ -1,0 +1,34 @@
+{
+  "description": "The then keyword",
+  "tests": [
+    {
+      "description": "if/then",
+      "compatibility": "7",
+      "schema": {
+        "if": { "minimum": 10 },
+        "then": { "multipleOf": 5 }
+      },
+      "instance": 42,
+      "errors": [
+        {
+          "messageId": "multipleOf-message",
+          "messageParams": {
+            "multipleOf": 5
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/then/multipleOf"]
+        }
+      ]
+    },
+    {
+      "description": "if/then pass",
+      "compatibility": "7",
+      "schema": {
+        "if": { "minimum": 10 },
+        "then": { "multipleOf": 5 }
+      },
+      "instance": 45,
+      "errors": []
+    }
+  ]
+}

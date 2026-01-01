@@ -1,0 +1,30 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The multipleOf keyword",
+  "tests": [
+    {
+      "description": "multipleOf",
+      "schema": {
+        "multipleOf": 3
+      },
+      "instance": 4,
+      "errors": [
+        {
+          "messageId": "multipleOf-message",
+          "messageParams": { "multipleOf": 3 },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/multipleOf"]
+        }
+      ]
+    },
+    {
+      "description": "multipleOf pass",
+      "schema": {
+        "multipleOf": 3
+      },
+      "instance": 6,
+      "errors": []
+    }
+  ]
+}

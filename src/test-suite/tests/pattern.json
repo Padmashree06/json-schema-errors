@@ -1,0 +1,32 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The pattern keyword",
+  "tests": [
+    {
+      "description": "pattern",
+      "schema": {
+        "pattern": "^a"
+      },
+      "instance": "banana",
+      "errors": [
+        {
+          "messageId": "pattern-message",
+          "messageParams": {
+            "pattern": "^a"
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/pattern"]
+        }
+      ]
+    },
+    {
+      "description": "pattern pass",
+      "schema": {
+        "pattern": "^a"
+      },
+      "instance": "apple",
+      "errors": []
+    }
+  ]
+}

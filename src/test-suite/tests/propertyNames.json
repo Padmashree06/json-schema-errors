@@ -1,0 +1,60 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The propertyNames keyword",
+  "tests": [
+    {
+      "description": "propertyNames",
+      "compatibility": "6",
+      "schema": {
+        "propertyNames": { "minLength": 5 }
+      },
+      "instance": { "foo": 42 },
+      "errors": [
+        {
+          "messageId": "minLength-message",
+          "messageParams": {
+            "minLength": 5
+          },
+          "instanceLocation": "#/foo",
+          "schemaLocations": ["#/propertyNames/minLength"]
+        }
+      ]
+    },
+    {
+      "description": "propertyNames without star notation",
+      "compatibility": "6",
+      "schema": {
+        "propertyNames": { "minLength": 5 }
+      },
+      "instance": { "foo": 42 },
+      "errors": [
+        {
+          "messageId": "minLength-message",
+          "messageParams": {
+            "minLength": 5
+          },
+          "instanceLocation": "#/foo",
+          "schemaLocations": ["#/propertyNames/minLength"]
+        }
+      ]
+    },
+    {
+      "description": "propertyNames on a non-object",
+      "compatibility": "6",
+      "schema": {
+        "propertyNames": { "minLength": 5 }
+      },
+      "instance": 42,
+      "errors": []
+    },
+    {
+      "description": "propertyNames pass",
+      "schema": {
+        "propertyNames": { "minLength": 5 }
+      },
+      "instance": { "foobar": 42 },
+      "errors": []
+    }
+  ]
+}

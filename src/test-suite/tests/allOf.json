@@ -1,0 +1,38 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The allOf keyword",
+  "tests": [
+    {
+      "description": "allOf",
+      "schema": {
+        "allOf": [
+          { "type": "number" },
+          { "minimum": 3 }
+        ]
+      },
+      "instance": 1,
+      "errors": [
+        {
+          "messageId": "minimum-message",
+          "messageParams": {
+            "minimum": 3
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/allOf/1/minimum"]
+        }
+      ]
+    },
+    {
+      "description": "allOf pass",
+      "schema": {
+        "oneOf": [
+          { "type": "string" },
+          { "minimum": 3 }
+        ]
+      },
+      "instance": 42,
+      "errors": []
+    }
+  ]
+}

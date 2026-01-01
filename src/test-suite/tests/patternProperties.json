@@ -1,0 +1,46 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The patternProperties keyword",
+  "tests": [
+    {
+      "description": "patternProperties",
+      "schema": {
+        "patternProperties": {
+          "^a": { "type": "number" }
+        }
+      },
+      "instance": { "apple": "foo" },
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["number"] }
+          },
+          "instanceLocation": "#/apple",
+          "schemaLocations": ["#/patternProperties/%5Ea/type"]
+        }
+      ]
+    },
+    {
+      "description": "patternProperties on a non-object",
+      "schema": {
+        "patternProperties": {
+          "^a": { "type": "number" }
+        }
+      },
+      "instance": 42,
+      "errors": []
+    },
+    {
+      "description": "patternProperties pass",
+      "schema": {
+        "patternProperties": {
+          "^a": { "type": "number" }
+        }
+      },
+      "instance": { "apple": 42 },
+      "errors": []
+    }
+  ]
+}

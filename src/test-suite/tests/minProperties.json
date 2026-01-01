@@ -1,0 +1,32 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The minProperties keyword",
+  "tests": [
+    {
+      "description": "minProperties",
+      "schema": {
+        "minProperties": 2
+      },
+      "instance": { "foo": 42 },
+      "errors": [
+        {
+          "messageId": "minProperties-message",
+          "messageParams": {
+            "minProperties": 2
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/minProperties"]
+        }
+      ]
+    },
+    {
+      "description": "minProperties pass",
+      "schema": {
+        "minProperties": 2
+      },
+      "instance": { "foo": 42, "bar": true },
+      "errors": []
+    }
+  ]
+}

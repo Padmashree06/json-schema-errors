@@ -1,0 +1,101 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The contains keyword",
+  "tests": [
+    {
+      "description": "contains",
+      "compatibility": "6",
+      "schema": {
+        "contains": { "type": "number" }
+      },
+      "instance": ["foo", null, true],
+      "errors": [
+        {
+          "messageId": "contains-message",
+          "messageParams": {
+            "minContains": 1
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/contains"]
+        }
+      ]
+    },
+    {
+      "description": "contains with minContains",
+      "compatibility": "2019",
+      "schema": {
+        "contains": { "type": "number" },
+        "minContains": 2
+      },
+      "instance": ["foo", 42],
+      "errors": [
+        {
+          "messageId": "contains-message",
+          "messageParams": {
+            "minContains": 2
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/contains", "#/minContains"]
+        }
+      ]
+    },
+    {
+      "description": "contains with an exact number of matches",
+      "compatibility": "2019",
+      "schema": {
+        "contains": { "type": "number" },
+        "maxContains": 1
+      },
+      "instance": ["foo", 42, 24],
+      "errors": [
+        {
+          "messageId": "contains-exact-message",
+          "messageParams": {
+            "minContains": 1,
+            "maxContains": 1
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/contains", "#/maxContains"]
+        }
+      ]
+    },
+    {
+      "description": "contains with a range of matches",
+      "compatibility": "2019",
+      "schema": {
+        "contains": { "type": "number" },
+        "maxContains": 2
+      },
+      "instance": [],
+      "errors": [
+        {
+          "messageId": "contains-range-message",
+          "messageParams": {
+            "minContains": 1,
+            "maxContains": 2
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/contains", "#/maxContains"]
+        }
+      ]
+    },
+    {
+      "description": "contains with a non-array",
+      "compatibility": "6",
+      "schema": {
+        "contains": { "type": "number" }
+      },
+      "instance": 42,
+      "errors": []
+    },
+    {
+      "description": "contains passing",
+      "schema": {
+        "contains": { "type": "number" }
+      },
+      "instance": ["foo", 42],
+      "errors": []
+    }
+  ]
+}

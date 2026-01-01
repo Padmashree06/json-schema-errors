@@ -1,0 +1,97 @@
+{
+  "description": "unevaluatedProperties keyword",
+  "tests": [
+    {
+      "description": "unevaluatedProperties with false schema",
+      "compatibility": "2019",
+      "schema": {
+        "allOf": [
+          {
+            "properties": {
+              "foo": { "type": "number" }
+            },
+            "patternProperties": {
+              "^a": { "type": "boolean" }
+            }
+          }
+        ],
+        "unevaluatedProperties": false
+      },
+      "instance": { "foo": 42, "apple": true, "bar": "foo" },
+      "errors": [
+        {
+          "messageId": "boolean-schema-message",
+          "messageParams": {},
+          "instanceLocation": "#/bar",
+          "schemaLocations": ["#/unevaluatedProperties"]
+        }
+      ]
+    },
+    {
+      "description": "unevaluatedProperties with object schema",
+      "compatibility": "2019",
+      "schema": {
+        "allOf": [
+          {
+            "properties": {
+              "foo": { "type": "number" }
+            },
+            "patternProperties": {
+              "^a": { "type": "boolean" }
+            }
+          }
+        ],
+        "unevaluatedProperties": { "type": "string" }
+      },
+      "instance": { "foo": 42, "apple": true, "bar": null },
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["string"] }
+          },
+          "instanceLocation": "#/bar",
+          "schemaLocations": ["#/unevaluatedProperties/type"]
+        }
+      ]
+    },
+    {
+      "description": "unevaluatedProperties on a non-object",
+      "compatibility": "2019",
+      "schema": {
+        "allOf": [
+          {
+            "properties": {
+              "foo": { "type": "number" }
+            },
+            "patternProperties": {
+              "^a": { "type": "boolean" }
+            }
+          }
+        ],
+        "unevaluatedProperties": false
+      },
+      "instance": 42,
+      "errors": []
+    },
+    {
+      "description": "unevaluatedProperties pass",
+      "compatibility": "2019",
+      "schema": {
+        "allOf": [
+          {
+            "properties": {
+              "foo": { "type": "number" }
+            },
+            "patternProperties": {
+              "^a": { "type": "boolean" }
+            }
+          }
+        ],
+        "unevaluatedProperties": false
+      },
+      "instance": { "foo": 42, "apple": true },
+      "errors": []
+    }
+  ]
+}

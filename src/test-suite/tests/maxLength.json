@@ -1,0 +1,32 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The maxLength keyword",
+  "tests": [
+    {
+      "description": "maxLength",
+      "schema": {
+        "maxLength": 3
+      },
+      "instance": "abcd",
+      "errors": [
+        {
+          "messageId": "maxLength-message",
+          "messageParams": {
+            "maxLength": 3
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/maxLength"]
+        }
+      ]
+    },
+    {
+      "description": "maxLength pass",
+      "schema": {
+        "maxLength": 3
+      },
+      "instance": "ab",
+      "errors": []
+    }
+  ]
+}

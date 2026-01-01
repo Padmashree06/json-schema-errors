@@ -1,0 +1,33 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The required keyword",
+  "tests": [
+    {
+      "description": "required",
+      "schema": {
+        "required": ["foo", "bar"]
+      },
+      "instance": { "foo": 42 },
+      "errors": [
+        {
+          "messageId": "required-message",
+          "messageParams": {
+            "count": 1,
+            "required": { "or": ["bar"] }
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/required"]
+        }
+      ]
+    },
+    {
+      "description": "required pass",
+      "schema": {
+        "required": ["foo"]
+      },
+      "instance": { "foo": 42 },
+      "errors": []
+    }
+  ]
+}

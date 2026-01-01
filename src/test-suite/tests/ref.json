@@ -1,0 +1,42 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "$ref and $defs keywords",
+  "tests": [
+    {
+      "description": "$ref",
+      "schema": {
+        "properties": {
+          "foo": { "$ref": "#/$defs/number" }
+        },
+        "$defs": {
+          "number": { "type": "number" }
+        }
+      },
+      "instance": { "foo": "bar" },
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["number"] }
+          },
+          "instanceLocation": "#/foo",
+          "schemaLocations": ["#/$defs/number/type"]
+        }
+      ]
+    },
+    {
+      "description": "$ref pass",
+      "schema": {
+        "properties": {
+          "foo": { "$ref": "#/$defs/number" }
+        },
+        "$defs": {
+          "number": { "type": "number" }
+        }
+      },
+      "instance": { "foo": 42 },
+      "errors": []
+    }
+  ]
+}

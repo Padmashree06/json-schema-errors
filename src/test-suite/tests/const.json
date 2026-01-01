@@ -1,0 +1,34 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The const keyword",
+  "tests": [
+    {
+      "description": "const",
+      "compatibility": "6",
+      "schema": {
+        "const": 42
+      },
+      "instance": "foo",
+      "errors": [
+        {
+          "messageId": "const-message",
+          "messageParams": {
+            "expected": 42
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/const"]
+        }
+      ]
+    },
+    {
+      "description": "const pass",
+      "compatibility": "6",
+      "schema": {
+        "const": 42
+      },
+      "instance": 42,
+      "errors": []
+    }
+  ]
+}

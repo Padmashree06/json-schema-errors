@@ -1,0 +1,32 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The minItems keyword",
+  "tests": [
+    {
+      "description": "minItems",
+      "schema": {
+        "minItems": 1
+      },
+      "instance": [],
+      "errors": [
+        {
+          "messageId": "minItems-message",
+          "messageParams": {
+            "minItems": 1
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/minItems"]
+        }
+      ]
+    },
+    {
+      "description": "minItems pass",
+      "schema": {
+        "minItems": 1
+      },
+      "instance": ["foo"],
+      "errors": []
+    }
+  ]
+}

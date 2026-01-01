@@ -1,0 +1,15 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "Unknown keywords",
+  "tests": [
+    {
+      "description": "unknown keyword",
+      "schema": {
+        "foo": 42
+      },
+      "instance": "foo",
+      "errors": []
+    }
+  ]
+}

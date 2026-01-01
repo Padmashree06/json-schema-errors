@@ -1,0 +1,34 @@
+{
+  "description": "uniqueItems error handler",
+  "tests": [
+    {
+      "description": "uniqueItems",
+      "schema": {
+        "uniqueItems": true
+      },
+      "instance": ["foo", "foo", "bar"],
+      "errors": [
+        {
+          "messageId": "uniqueItems-message",
+          "messageParams": {},
+          "instanceLocation": "#/0",
+          "schemaLocations": ["#/uniqueItems"]
+        },
+        {
+          "messageId": "uniqueItems-message",
+          "messageParams": {},
+          "instanceLocation": "#/1",
+          "schemaLocations": ["#/uniqueItems"]
+        }
+      ]
+    },
+    {
+      "description": "uniqueItems pass",
+      "schema": {
+        "uniqueItems": true
+      },
+      "instance": ["foo", "bar"],
+      "errors": []
+    }
+  ]
+}

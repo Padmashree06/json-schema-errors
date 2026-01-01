@@ -1,0 +1,96 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "$dynamicRef and $dynamicAnchor keywords",
+  "tests": [
+    {
+      "description": "$dynamicRef",
+      "compatibility": "2020",
+      "schema": {
+        "$ref": "base",
+        "$defs": {
+          "a": {
+            "$dynamicAnchor": "foo",
+            "type": "number"
+          },
+          "base": {
+            "$id": "base",
+            "properties": {
+              "foo": { "$dynamicRef": "#foo" }
+            },
+            "$defs": {
+              "foo": {
+                "$dynamicAnchor": "foo",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "instance": { "foo": "bar" },
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["number"] }
+          },
+          "instanceLocation": "#/foo",
+          "schemaLocations": ["#/$defs/a/type"]
+        }
+      ]
+    },
+    {
+      "description": "$dynamicRef invalid",
+      "compatibility": "2020",
+      "schema": {
+        "properties": {
+          "foo": { "$dynamicRef": "#foo" }
+        },
+        "$defs": {
+          "foo": {
+            "$anchor": "foo",
+            "type": "number"
+          }
+        }
+      },
+      "instance": { "foo": "bar" },
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["number"] }
+          },
+          "instanceLocation": "#/foo",
+          "schemaLocations": ["#/$defs/foo/type"]
+        }
+      ]
+    },
+    {
+      "description": "$dynamiRef pass",
+      "compatibility": "2020",
+      "schema": {
+        "$ref": "base",
+        "$defs": {
+          "a": {
+            "$dynamicAnchor": "foo",
+            "type": "number"
+          },
+          "base": {
+            "$id": "base",
+            "properties": {
+              "foo": { "$dynamicRef": "#foo" }
+            },
+            "$defs": {
+              "foo": {
+                "$dynamicAnchor": "foo",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "instance": { "foo": 42 },
+      "errors": []
+    }
+  ]
+}

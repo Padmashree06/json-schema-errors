@@ -1,0 +1,30 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The minimum keyword",
+  "tests": [
+    {
+      "description": "minimum",
+      "schema": {
+        "minimum": 3
+      },
+      "instance": 0,
+      "errors": [
+        {
+          "messageId": "minimum-message",
+          "messageParams": { "minimum": 3 },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/minimum"]
+        }
+      ]
+    },
+    {
+      "description": "minimum pass",
+      "schema": {
+        "minimum": 3
+      },
+      "instance": 5,
+      "errors": []
+    }
+  ]
+}

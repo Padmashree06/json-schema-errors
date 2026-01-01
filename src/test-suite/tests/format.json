@@ -1,0 +1,32 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The format keyword",
+  "tests": [
+    {
+      "description": "format",
+      "schema": {
+        "format": "email"
+      },
+      "instance": "invalid",
+      "errors": [
+        {
+          "messageId": "format-message",
+          "messageParams": {
+            "format": "email"
+          },
+          "instanceLocation": "#",
+          "schemaLocations": ["#/format"]
+        }
+      ]
+    },
+    {
+      "description": "format pass",
+      "schema": {
+        "format": "email"
+      },
+      "instance": "valid@email.com",
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The properties keyword",
+  "tests": [
+    {
+      "description": "properties",
+      "schema": {
+        "properties": {
+          "foo": { "type": "number" }
+        }
+      },
+      "instance": { "foo": "bar" },
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": { "or": ["number"] }
+          },
+          "instanceLocation": "#/foo",
+          "schemaLocations": ["#/properties/foo/type"]
+        }
+      ]
+    },
+    {
+      "description": "properties on an non-object",
+      "schema": {
+        "properties": {
+          "foo": { "type": "number" }
+        }
+      },
+      "instance": 42,
+      "errors": []
+    },
+    {
+      "description": "properties pass",
+      "schema": {
+        "properties": {
+          "foo": { "type": "number" }
+        }
+      },
+      "instance": { "foo": 42 },
+      "errors": []
+    }
+  ]
+}

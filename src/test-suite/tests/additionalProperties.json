@@ -1,0 +1,89 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "The additionalProperties keyword",
+  "tests": [
+    {
+      "description": "additionalProperties with false schema",
+      "schema": {
+        "properties": {
+          "foo": { "type": "number" }
+        },
+        "patternProperties": {
+          "^a": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      },
+      "instance": {
+        "foo": 42,
+        "apple": true,
+        "bar": "foo"
+      },
+      "errors": [
+        {
+          "messageId": "boolean-schema-message",
+          "instanceLocation": "#/bar",
+          "schemaLocations": ["#/additionalProperties"]
+        }
+      ]
+    },
+    {
+      "description": "additionalProperties with object schema",
+      "schema": {
+        "properties": {
+          "foo": { "type": "number" }
+        },
+        "patternProperties": {
+          "^a": { "type": "boolean" }
+        },
+        "additionalProperties": { "type": "string" }
+      },
+      "instance": {
+        "foo": 42,
+        "apple": true,
+        "bar": null
+      },
+      "errors": [
+        {
+          "messageId": "type-message",
+          "messageParams": {
+            "expectedTypes": "string"
+          },
+          "instanceLocation": "#/bar",
+          "schemaLocations": ["#/additionalProperties/type"]
+        }
+      ]
+    },
+    {
+      "description": "additionalProperties on a non-object",
+      "schema": {
+        "properties": {
+          "foo": { "type": "number" }
+        },
+        "patternProperties": {
+          "^a": { "type": "boolean" }
+        },
+        "additionalProperties": { "type": "string" }
+      },
+      "instance": 42,
+      "errors": []
+    },
+    {
+      "description": "additionalProperties pass",
+      "schema": {
+        "properties": {
+          "foo": { "type": "number" }
+        },
+        "patternProperties": {
+          "^a": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      },
+      "instance": {
+        "foo": 42,
+        "apple": true
+      },
+      "errors": []
+    }
+  ]
+}

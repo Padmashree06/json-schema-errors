@@ -1,0 +1,38 @@
+{
+  "$schema": "../test-suite.schema.json",
+
+  "description": "Boolean schemas",
+  "tests": [
+    {
+      "description": "false schema on a property",
+      "schema": {
+        "properties": {
+          "foo": false
+        }
+      },
+      "instance": {
+        "foo": 42
+      },
+      "errors": [
+        {
+          "messageId": "boolean-schema-message",
+          "instanceLocation": "#/foo",
+          "schemaLocations": ["#/properties/foo"]
+        }
+      ]
+    },
+    {
+      "description": "true schema on a property",
+      "schema": {
+        "properties": {
+          "foo": true,
+          "bar": false
+        }
+      },
+      "instance": {
+        "foo": 42
+      },
+      "errors": []
+    }
+  ]
+}
