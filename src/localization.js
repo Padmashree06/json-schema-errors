@@ -81,7 +81,7 @@ export class Localization {
 
   /** @type (exclusiveMaximum: number) => string */
   getExclusiveMaximumErrorMessage(exclusiveMaximum) {
-    return this.#formatMessage("exclusiveMaximum-message", { exclusiveMaximum });
+    return this.#formatMessage("exclusiveMaximum-message", { exclusiveMaximum, maximum: exclusiveMaximum });
   }
 
   /** @type (maximum: number) => string */
@@ -91,7 +91,7 @@ export class Localization {
 
   /** @type (exclusiveMinimum: number) => string */
   getExclusiveMinimumErrorMessage(exclusiveMinimum) {
-    return this.#formatMessage("exclusiveMinimum-message", { exclusiveMinimum });
+    return this.#formatMessage("exclusiveMinimum-message", { exclusiveMinimum, minimum: exclusiveMinimum });
   }
 
   /** @type (minimum: number) => string */
